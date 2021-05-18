@@ -3,18 +3,9 @@ from django.contrib import admin
 from . models import Question, Choice
 
 
-# class QuestionAdmin(admin.ModelAdmin):
-#     fields = ['pub_date', 'question_text']
+admin.AdminSite.site_header = 'Polls Administration'
 
 
-# class QuestionAdmin(admin.ModelAdmin):
-#     fieldsets = [
-#         (None,               {'fields': ['question_text']}),
-#         ('Date information', {'fields': ['pub_date']}),
-#     ]
-
-
-# class ChoiceInline(admin.StackedInline):  # show like lined
 class ChoiceInline(admin.TabularInline):  # show like rows
     model = Choice
     extra = 1
@@ -33,4 +24,3 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Question, QuestionAdmin)
-# admin.site.register(Choice)
